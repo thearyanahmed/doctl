@@ -320,6 +320,18 @@ Only basic information is included with the text output format. For complete app
 		doctl.ArgTriggerDeployment, "", true, "Specifies whether to trigger a new deployment to apply the upgrade.")
 	upgradeBuildpack.Example = `The following example upgrades an app's buildpack with the ID ` + "`" + `f81d4fae-7dec-11d0-a765-00a0c91e6bf6` + "`" + ` to the latest available version: doctl apps upgrade-buildpack f81d4fae-7dec-11d0-a765-00a0c91e6bf6 --buildpack f81d4fae-7dec-11d0-a765-00a0c91e6bf6`
 
+	aiContext := CmdBuilder(
+		cmd,
+		RunAIContext,
+		"ai-context",
+		"Add or update ai-content",
+		`Get or update the AI context for an app. The AI context is used to provide additional information to AI models when generating responses related to the app platform.`,
+		Writer,
+		aliasOpt("i"),
+	)
+
+	aiContext.Example = `TODO: AI Context example`
+
 	cmd.AddCommand(appsSpec())
 	cmd.AddCommand(appsTier())
 
@@ -1327,4 +1339,9 @@ func RunGetAppInstances(c *CmdConfig) error {
 	}
 
 	return c.Display(displayers.AppInstances(instances))
+}
+
+func RunAIContext(c *CmdConfig) error {
+	fmt.Println("This command is not implemented yet. Please check back later for updates.")
+	return nil
 }
